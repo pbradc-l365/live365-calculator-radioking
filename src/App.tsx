@@ -3,14 +3,13 @@ import { CheckboxControls } from './components/CheckboxControls';
 import { ComparisonGraph } from './components/ComparisonGraph';
 import {
   LIVE365_PRICE,
-  RADIO_CO_BASE_STARTING_PRICE,
+  RADIOKING_BASE_STARTING_PRICE,
   EXPENSE_OPTIONS,
 } from './data/calculatorData';
 
 export default function App() {
-  // Default selected expenses: users can toggle any of them, including Base Audio Hosting
+  // Default selected expenses: all required expenses for RadioKing
   const [selectedIds, setSelectedIds] = useState<string[]>([
-    'base-hosting',
     'music-licensing',
     'royalty-reporting',
   ]);
@@ -39,14 +38,14 @@ export default function App() {
         
         {/* Intro Title */}
         <section className="text-center max-w-2xl mx-auto space-y-2">
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
-            The True Cost of Streaming: <br />
-            <span className="text-[#F05023]">Live365</span> vs. RadioKing
-          </h1>
-          <p className="text-xs sm:text-sm text-slate-400">
-            Check or uncheck broadcaster expenses below to see how standalone costs stack up against Live365&apos;s all-inclusive $65/mo flat rate.
-          </p>
-        </section>
+           <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight">
+             The True Cost of Streaming: <br />
+             <span className="text-[#F05023]">Live365</span> vs. RadioKing
+           </h1>
+           <p className="text-xs sm:text-sm text-slate-400">
+             Check or uncheck broadcaster expenses below to see how standalone costs stack up against Live365&apos;s all-inclusive $65/mo flat rate.
+           </p>
+         </section>
 
         {/* 2-Column Calculator: Checkboxes on the Left, 2-Bar Graph on the Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
@@ -66,7 +65,7 @@ export default function App() {
           <div className="lg:col-span-7 flex">
             <ComparisonGraph
               live365Price={LIVE365_PRICE}
-              radioCoBasePrice={RADIO_CO_BASE_STARTING_PRICE}
+              radioKingBasePrice={RADIOKING_BASE_STARTING_PRICE}
               options={EXPENSE_OPTIONS}
               selectedIds={selectedIds}
             />
